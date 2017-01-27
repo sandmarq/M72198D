@@ -35,7 +35,13 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef m72198d_h
 #define m72198d_h
 
-#include "Arduino.h"
+#if ARDUINO >= 100
+ #include "Arduino.h"
+ #define WIRE_WRITE Wire.write
+#else
+ #include "WProgram.h"
+  #define WIRE_WRITE Wire.send
+#endif
 
 class Max7219
 {
