@@ -53,14 +53,14 @@ void Max7219::setdata(byte data)
   _data = data;
 }
 
-void Max7219::begin()
+void Max7219::init()
 {
   digitalWrite(_max7219cs, HIGH);
   pinMode(_max7219din, OUTPUT);
   pinMode(_max7219cs, OUTPUT);
   pinMode(_max7219clk, OUTPUT);
-  setaddress(0x0f);
-  setdata(0x00);
+  setaddress(MAX7212_REG_ADD_DPTE);
+  setdata(MAX7212_REG_ADD_NOOP);
   output();
 }
 
