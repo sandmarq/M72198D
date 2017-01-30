@@ -40,8 +40,14 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  #define WIRE_WRITE Wire.write
 #else
  #include "WProgram.h"
-  #define WIRE_WRITE Wire.send
+ #define WIRE_WRITE Wire.send
 #endif
+
+#if defined(ESP8266) || defined(ESP32)
+  typedef volatile uint32_t PortReg;
+  typedef uint32_t PortMask;
+#endif
+
 /*
 Max7219 register address map
 */
