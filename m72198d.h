@@ -76,6 +76,8 @@ Max7219 Code B Font Register On Segment = 1
 #define MAX7219_CODEB_FONT_SEG_0             0x7E
 #define MAX7219_CODEB_FONT_SEG_1             0x30
 #define MAX7219_CODEB_FONT_SEG_2             0x33
+#define MAX7219_CODEB_FONT_SEG_3             0x79
+#define MAX7219_CODEB_FONT_SEG_4             0x33
 #define MAX7219_CODEB_FONT_SEG_5             0x5B
 #define MAX7219_CODEB_FONT_SEG_6             0x5F
 #define MAX7219_CODEB_FONT_SEG_7             0x70
@@ -83,10 +85,12 @@ Max7219 Code B Font Register On Segment = 1
 #define MAX7219_CODEB_FONT_SEG_9             0x7B
 #define MAX7219_CODEB_FONT_SEG__             0x01
 #define MAX7219_CODEB_FONT_SEG_E             0x4F
-#define MAX7219_CODEB_FONT_SEG_H             0x0E
-#define MAX7219_CODEB_FONT_SEG_L             0x67
-#define MAX7219_CODEB_FONT_SEG_P             0x00
-
+#define MAX7219_CODEB_FONT_SEG_H             0x37
+#define MAX7219_CODEB_FONT_SEG_L             0x0E
+#define MAX7219_CODEB_FONT_SEG_P             0x67
+#define MAX7219_CODEB_FONT_SEG_C             0x4E
+#define MAX7219_CODEB_FONT_SEG_F             0x47
+#define MAX7219_CODEB_FONT_SEG               0x00
 /*
 Max7219 Intensity
 */
