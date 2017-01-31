@@ -34,6 +34,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "Arduino.h"
 #include "m72198d.h"
+#include "SPI.h"
 
 Max7219::Max7219(int max7219din, int max7219cs, int max7219clk, int numdisp)
 {

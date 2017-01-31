@@ -64,7 +64,7 @@ Max7219 register address map
 #define MAX7212_REG_ADD_BRIG             0x0A
 #define MAX7212_REG_ADD_SCLT             0x0B
 #define MAX7212_REG_ADD_SHTD             0x0C
-#define MAX7212_REG_ADD_DPTE             0x0F
+#define MAX7212_REG_ADD_DPTE             0x0f
 
 /*
 Max7219 Shutdown Register Format
