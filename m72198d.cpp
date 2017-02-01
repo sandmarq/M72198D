@@ -14,12 +14,12 @@ Max7219::Max7219(int max7219din, int max7219cs, int max7219clk, int numdisp)
   _numdisp = numdisp;
 }
 
-void Max7219::setaddress(byte address)
+void Max7219::setAddress(byte address)
 {
   _address = address;
 }
 
-void Max7219::setdata(byte data)
+void Max7219::setData(byte data)
 {
   _data = data;
 }
@@ -36,29 +36,15 @@ void Max7219::init()
   pinMode(_max7219clk, OUTPUT);
 
   //  output(0x0f, 0x00); //display test register - test mode off
-  setaddress(MAX7212_REG_ADD_DPTE);
-  setdata(MAX7212_REG_ADD_NOOP);
-  output();
-
+  setTestModeOff();
   //  output(0x0c, 0x01); //shutdown register - normal operation
-  setaddress(MAX7212_REG_ADD_SHTD);
-  setdata(MAX7219_SHTD_REG_FOR_NOR);
-  output();
-
+  setShutdownRegNorm();
   // output(0x0b, 0x07); //scan limit register - display digits 7 thru 0
-  setaddress(MAX7212_REG_ADD_SCLT);
-  setdata(MAX7219_NUM_DIGIT_8);
-  output();
-
+  setLimitScanReg();
   //  output(0x0a, 0x0f); //intensity register - max brightness
-  setaddress(MAX7212_REG_ADD_BRIG);
-  setdata(MAX7219_INTE_MAX);
-  output();
-
+  setBrightness();
   //  output(0x09, 0xff); //decode mode register - CodeB decode all digits
-  setaddress(MAX7212_REG_ADD_DECM);
-  setdata(MAX7219_DEC_MOD_REG_CB70);
-  output();
+  setDecodeMode();
 }
 
 void Max7219::output()
@@ -67,4 +53,58 @@ void Max7219::output()
   shiftOut(_max7219din, _max7219clk, MSBFIRST, _address);
   shiftOut(_max7219din, _max7219clk, MSBFIRST, _data);
   digitalWrite(_max7219cs, HIGH);
+}
+
+//  output(0x0f, 0x00); //display test register - test mode off
+void Max7219::setTestModeOff(){
+  setAddress(MAX7219_REG_ADD_DPTE);
+  setData(MAX7219_TEST_MODE_OFF);
+  output();
+}
+
+//  output(0x0f, 0x01); //display test register - test mode on
+void Max7219::setTestModeOn(){
+  setAddress(MAX7219_REG_ADD_DPTE);
+  setData(MAX7219_TEST_MODE_ON);
+  output();
+}
+
+//  output(0x0c, 0x00); //shutdown register - shutdown
+void Max7219::setShutdownRegShut(){
+  setAddress(MAX7219_REG_ADD_SHTD);
+  setData(MAX7219_SHTD_REG_FOR_SHM);
+  output();
+}
+
+//  output(0x0c, 0x01); //shutdown register - normal operation
+void Max7219::setShutdownRegNorm(){
+  setAddress(MAX7219_REG_ADD_SHTD);
+  setData(MAX7219_SHTD_REG_FOR_NOR);
+  output();
+}
+
+// output(0x0b, 0x07); //scan limit register - display digits 7 thru 0
+void Max7219::setLimitScanReg(int numDigits){
+  setAddress(MAX7219_REG_ADD_SCLT);
+  setData(numDigits);
+  output();
+}
+
+//  output(0x0a, 0x0f); //intensity register - max brightness
+void Max7219::setBrightness(int brightness){
+  setAddress(MAX7219_REG_ADD_BRIG);
+  setData(MAX7219_INTE_MAX);
+  output();
+}
+
+//  output(0x09, 0xff); //decode mode register - CodeB decode all digits
+void Max7219::setDecodeMode(int decodeMode){
+setAddress(MAX7219_REG_ADD_DECM);
+setData(MAX7219_DEC_MOD_REG_CB70);
+output();
+}
+
+// Write text on display Max 8 Digit
+void Max7219::writeNumInFontB(){
+  // To-Do
 }

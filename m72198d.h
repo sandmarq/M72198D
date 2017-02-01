@@ -22,20 +22,26 @@
 /*
 Max7219 register address map
 */
-#define MAX7212_REG_ADD_NOOP             0x00
-#define MAX7212_REG_ADD_DIG0             0x01
-#define MAX7212_REG_ADD_DIG1             0x02
-#define MAX7212_REG_ADD_DIG2             0x03
-#define MAX7212_REG_ADD_DIG3             0x04
-#define MAX7212_REG_ADD_DIG4             0x05
-#define MAX7212_REG_ADD_DIG5             0x06
-#define MAX7212_REG_ADD_DIG6             0x07
-#define MAX7212_REG_ADD_DIG7             0x08
-#define MAX7212_REG_ADD_DECM             0x09
-#define MAX7212_REG_ADD_BRIG             0x0A
-#define MAX7212_REG_ADD_SCLT             0x0B
-#define MAX7212_REG_ADD_SHTD             0x0C
-#define MAX7212_REG_ADD_DPTE             0x0f
+#define MAX7219_REG_ADD_NOOP             0x00
+#define MAX7219_REG_ADD_DIG0             0x01
+#define MAX7219_REG_ADD_DIG1             0x02
+#define MAX7219_REG_ADD_DIG2             0x03
+#define MAX7219_REG_ADD_DIG3             0x04
+#define MAX7219_REG_ADD_DIG4             0x05
+#define MAX7219_REG_ADD_DIG5             0x06
+#define MAX7219_REG_ADD_DIG6             0x07
+#define MAX7219_REG_ADD_DIG7             0x08
+#define MAX7219_REG_ADD_DECM             0x09
+#define MAX7219_REG_ADD_BRIG             0x0A
+#define MAX7219_REG_ADD_SCLT             0x0B
+#define MAX7219_REG_ADD_SHTD             0x0C
+#define MAX7219_REG_ADD_DPTE             0x0f
+
+/*
+Max7219 Test Mode
+*/
+#define MAX7219_TEST_MODE_ON             0xFF
+#define MAX7219_TEST_MODE_OFF            0x00
 
 /*
 Max7219 Shutdown Register Format
@@ -118,10 +124,18 @@ class Max7219
 {
   public:
     Max7219(int max7219din=5, int max7219cs=6, int max7219clk=7, int numdisp=1);
-    void setaddress(byte address);
-    void setdata(byte address);
-    void output();
     void init();
+    void setAddress(byte address);
+    void setData(byte address);
+    void output();
+    void setTestModeOff();
+    void setTestModeOn();
+    void setShutdownRegShut();
+    void setShutdownRegNorm();
+    void setLimitScanReg(int numDigits=MAX7219_NUM_DIGIT_8);
+    void setBrightness(int brightness=MAX7219_INTE_MAX);
+    void setDecodeMode(int decodeMode=MAX7219_DEC_MOD_REG_CB70);
+    void writeNumInFontB();
 
   private:
     int _max7219din;
