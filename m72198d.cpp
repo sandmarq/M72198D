@@ -95,16 +95,26 @@ void Max7219::setBrightness(int brightness){
   setAddress(MAX7219_REG_ADD_BRIG);
   setData(MAX7219_INTE_MAX);
   output();
+  Serial.println("Bright");
 }
 
 //  output(0x09, 0xff); //decode mode register - CodeB decode all digits
 void Max7219::setDecodeMode(int decodeMode){
-setAddress(MAX7219_REG_ADD_DECM);
-setData(MAX7219_DEC_MOD_REG_CB70);
-output();
+  setAddress(MAX7219_REG_ADD_DECM);
+  setData(MAX7219_DEC_MOD_REG_CB70);
+  output();
 }
 
 // Write text on display Max 8 Digit
 void Max7219::writeNumInFontB(){
-  // To-Do
+/*  String a="01022017";
+  for(int x=0;x<a.length();x++){
+    setAddress(x+1);
+    setData(1);
+    output();
+  }*/
+  Serial.println("Function");
+  setAddress(MAX7219_REG_ADD_DIG7);
+  setData(MAX7219_CODEB_FONT_REG_8);
+  output();
 }
