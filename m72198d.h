@@ -135,7 +135,7 @@ class Max7219
     void setLimitScanReg(int numDigits=MAX7219_NUM_DIGIT_8);
     void setBrightness(int brightness=MAX7219_INTE_MAX);
     void setDecodeMode(int decodeMode=MAX7219_DEC_MOD_REG_CB70);
-    void writeNumInFontB(void);
+    void writeNumInFontB(String a);
 
   private:
     int _max7219din;

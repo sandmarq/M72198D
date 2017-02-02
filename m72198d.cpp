@@ -106,15 +106,17 @@ void Max7219::setDecodeMode(int decodeMode){
 }
 
 // Write text on display Max 8 Digit
-void Max7219::writeNumInFontB(void){
-/*  String a="01022017";
-  for(int x=0;x<a.length();x++){
+void Max7219::writeNumInFontB(String a){
+  // empty 8 digits
+  for(int x=0;x<8;x++){
     setAddress(x+1);
-    setData(1);
+    setData(15);
     output();
-  }*/
+  }
+  for(int x=0;x<a.length();x++){
+    setAddress(a.length()-x);
+    setData((int)a[x]);
+    output();
+  }
   Serial.println("Function");
-  setAddress(MAX7219_REG_ADD_DIG7);
-  setData(MAX7219_CODEB_FONT_REG_8);
-  output();
 }
