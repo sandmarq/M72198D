@@ -28,7 +28,7 @@ void Max7219::setData(byte data)
 initialize the display to normal operation, with 8 digits, maximum brightness,
 with CodeB decode on all digits.
 */
-void Max7219::init()
+void Max7219::init(void)
 {
   digitalWrite(_max7219cs, HIGH);
   pinMode(_max7219din, OUTPUT);
@@ -47,7 +47,7 @@ void Max7219::init()
   setDecodeMode();
 }
 
-void Max7219::output()
+void Max7219::output(void)
 {
   digitalWrite(_max7219cs, LOW);
   shiftOut(_max7219din, _max7219clk, MSBFIRST, _address);
@@ -56,28 +56,28 @@ void Max7219::output()
 }
 
 //  output(0x0f, 0x00); //display test register - test mode off
-void Max7219::setTestModeOff(){
+void Max7219::setTestModeOff(void){
   setAddress(MAX7219_REG_ADD_DPTE);
   setData(MAX7219_TEST_MODE_OFF);
   output();
 }
 
 //  output(0x0f, 0x01); //display test register - test mode on
-void Max7219::setTestModeOn(){
+void Max7219::setTestModeOn(void){
   setAddress(MAX7219_REG_ADD_DPTE);
   setData(MAX7219_TEST_MODE_ON);
   output();
 }
 
 //  output(0x0c, 0x00); //shutdown register - shutdown
-void Max7219::setShutdownRegShut(){
+void Max7219::setShutdownRegShut(void){
   setAddress(MAX7219_REG_ADD_SHTD);
   setData(MAX7219_SHTD_REG_FOR_SHM);
   output();
 }
 
 //  output(0x0c, 0x01); //shutdown register - normal operation
-void Max7219::setShutdownRegNorm(){
+void Max7219::setShutdownRegNorm(void){
   setAddress(MAX7219_REG_ADD_SHTD);
   setData(MAX7219_SHTD_REG_FOR_NOR);
   output();
@@ -106,7 +106,7 @@ void Max7219::setDecodeMode(int decodeMode){
 }
 
 // Write text on display Max 8 Digit
-void Max7219::writeNumInFontB(){
+void Max7219::writeNumInFontB(void){
 /*  String a="01022017";
   for(int x=0;x<a.length();x++){
     setAddress(x+1);

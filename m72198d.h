@@ -124,18 +124,18 @@ class Max7219
 {
   public:
     Max7219(int max7219din=5, int max7219cs=6, int max7219clk=7, int numdisp=1);
-    void init();
+    void init(void);
     void setAddress(byte address);
     void setData(byte address);
-    void output();
-    void setTestModeOff();
-    void setTestModeOn();
-    void setShutdownRegShut();
-    void setShutdownRegNorm();
+    void output(void);
+    void setTestModeOff(void);
+    void setTestModeOn(void);
+    void setShutdownRegShut(void);
+    void setShutdownRegNorm(void);
     void setLimitScanReg(int numDigits=MAX7219_NUM_DIGIT_8);
     void setBrightness(int brightness=MAX7219_INTE_MAX);
     void setDecodeMode(int decodeMode=MAX7219_DEC_MOD_REG_CB70);
-    void writeNumInFontB();
+    void writeNumInFontB(void);
 
   private:
     int _max7219din;
