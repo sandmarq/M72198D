@@ -19,51 +19,6 @@ void setup() {
 }
 
 void loop() {
-/*  //  output(0x08, 0xXX);
-  display1.setAddress(MAX7219_REG_ADD_DIG7);
-  display1.setData(MAX7219_CODEB_FONT_REG_0);
-  display1.output();
-  Serial.println("digit 0 (rightmost digit) data");
-
-
-  //  output(0x07, 0xXX);
-  display1.setAddress(MAX7219_REG_ADD_DIG6);
-  display1.setData(MAX7219_CODEB_FONT_REG_2);
-  display1.output();
-
-  //  output(0x06, 0x0e);
-  display1.setAddress(MAX7219_REG_ADD_DIG5);
-  display1.setData(MAX7219_CODEB_FONT_REG_0);
-  display1.output();
-
-  //  output(0x05, 0xXX);
-  display1.setAddress(MAX7219_REG_ADD_DIG4);
-  display1.setData(MAX7219_CODEB_FONT_REG_2);
-  display1.output();
-
-  //  output(0x04, 0xXX);
-  display1.setAddress(MAX7219_REG_ADD_DIG3);
-  display1.setData(MAX7219_CODEB_FONT_REG_2);
-  display1.output();
-
-  //  output(0x03, 0xXX);
-  display1.setAddress(MAX7219_REG_ADD_DIG2);
-  display1.setData(MAX7219_CODEB_FONT_REG_0);
-  display1.output();
-
-  //  output(0x02, 0xXX); //digit 0 (rightmost digit) data
-  display1.setAddress(MAX7219_REG_ADD_DIG1);
-  display1.setData(MAX7219_CODEB_FONT_REG_1);
-  display1.output();
-
-  //  output(0x01, 0xXX); //digit 0 (rightmost digit) data
-  display1.setAddress(MAX7219_REG_ADD_DIG0);
-  display1.setData(MAX7219_CODEB_FONT_REG_7);
-  display1.output();
-  Serial.println("digit 0 (rightmost digit) data");
-
-  delay(1000);
-*/
   time = millis();
   display1.writeNumInFontB(String(time));
 
