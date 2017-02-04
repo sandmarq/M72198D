@@ -127,15 +127,15 @@ class Max7219
     void init(void);
     void setAddress(byte address);
     void setData(byte address);
-    void output(void);
-    void setTestModeOff(void);
-    void setTestModeOn(void);
-    void setShutdownRegShut(void);
-    void setShutdownRegNorm(void);
-    void setLimitScanReg(int numDigits=MAX7219_NUM_DIGIT_8);
-    void setBrightness(int brightness=MAX7219_INTE_MAX);
-    void setDecodeMode(int decodeMode=MAX7219_DEC_MOD_REG_CB70);
-    void writeNumInFontB(String a);
+    void output(int display=1);
+    void setTestModeOff(int display=1);
+    void setTestModeOn(int display=1);
+    void setShutdownRegShut(int display=1);
+    void setShutdownRegNorm(int display=1);
+    void setLimitScanReg(int numDigits=MAX7219_NUM_DIGIT_8, int display=1);
+    void setBrightness(int brightness=MAX7219_INTE_MAX, int display=1);
+    void setDecodeMode(int decodeMode=MAX7219_DEC_MOD_REG_CB70, int display=1);
+    void writeNumInFontB(String a, int display=1);
 
   private:
     int _max7219din;
